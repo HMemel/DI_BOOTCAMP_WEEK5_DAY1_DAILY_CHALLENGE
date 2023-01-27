@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      The Star Wars films
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+ 
+  <div id="container">
+    <strong *ngIf="!loading">Veuillez patienter...</strong>
+    <!-- <strong *ngIf="loading">{{films.title}}</strong> -->
+    <ion-grid *ngIf="loading">
+      <ion-row>
+        <ion-col>ID</ion-col>
+        <ion-col>TITLE</ion-col>
+        <ion-col>EPISODE</ion-col>
+        <ion-col>DIRECTOR</ion-col>
+        <ion-col>PRODUCER</ion-col>
+        <ion-col>RELEASE DATE</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let film of films; index as id;">
+        <ion-col>#{{(id+1)}}</ion-col>
+        <ion-col>{{film.title}}</ion-col>
+        <ion-col>Epis{{film.episode_id}}</ion-col>
+        <ion-col>{{film.director}}</ion-col>
+        <ion-col>{{film.producer}}</ion-col>
+        <ion-col>{{film.release_date}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
